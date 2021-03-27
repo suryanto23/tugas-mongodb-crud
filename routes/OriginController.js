@@ -10,7 +10,7 @@ app.get("/origin" , async (req,res)=>{
         res.send(origin)
     } catch (e) {
         console.log("gagal " ,e);
-        res.status(500).send(err)
+        res.status(500).send(e)
     }
 
 });
@@ -22,7 +22,7 @@ app.get("/origin/:id" , async (req,res)=>{
         res.send(origin)
     } catch (e) {
         console.log(e);
-        res.status(500).send(err)
+        res.status(500).send(e)
     }
     
 });
@@ -35,7 +35,7 @@ app.post("/origin" , async (req,res)=>{
         res.send(newVal)
     } catch (e) {
         console.log(e);
-        res.status(500).send(err)
+        res.status(500).send(e)
     }
 
 });
@@ -49,7 +49,7 @@ app.delete("/origin/:id" , async (req,res)=>{
         res.send(deleteVal)
     } catch (e) {
         console.log(e);
-        res.status(500).send(err)
+        res.status(500).send(e)
     }
     
 });
@@ -64,7 +64,7 @@ app.put("/origin/:id" , async (req,res)=>{
         res.send(updateVal)
     } catch (e) {
         console.log(e);
-        res.status(500).send(err)
+        res.status(500).send(e)
     }
     
 });
