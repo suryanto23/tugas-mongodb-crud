@@ -5,9 +5,8 @@ const app = express();
 
 app.get("/origin" , async (req,res)=>{
 
-    const origin = await Origin.find({})
-
       try {
+        const origin = await Origin.find({})
         res.send(origin)
     } catch (e) {
         console.log("gagal " ,e);
@@ -17,11 +16,9 @@ app.get("/origin" , async (req,res)=>{
 });
 
 app.get("/origin/:id" , async (req,res)=>{
-
-    const origin = await Origin.findById(req.params.id)
-
     
     try {
+        const origin = await Origin.findById(req.params.id)
         res.send(origin)
     } catch (e) {
         console.log(e);
@@ -32,10 +29,9 @@ app.get("/origin/:id" , async (req,res)=>{
 
 app.post("/origin" , async (req,res)=>{
 
-    const newVal = await Origin.create(req.body)
-    console.log("data baru adalah " ,newVal)
-
     try {
+        const newVal = await Origin.create(req.body)
+        console.log("data baru adalah " ,newVal)
         res.send(newVal)
     } catch (e) {
         console.log(e);
@@ -46,11 +42,10 @@ app.post("/origin" , async (req,res)=>{
 
 app.delete("/origin/:id" , async (req,res)=>{
     
-    // got target id
-    const originID = await Origin.findById(req.params.id)
-    const deleteVal = await Origin.deleteOne({ _id:originID   })
-    
     try {
+         // got target id
+        const originID = await Origin.findById(req.params.id)
+        const deleteVal = await Origin.deleteOne({ _id:originID })
         res.send(deleteVal)
     } catch (e) {
         console.log(e);
@@ -61,14 +56,11 @@ app.delete("/origin/:id" , async (req,res)=>{
 
 app.put("/origin/:id" , async (req,res)=>{
     
-    // got target id
-    const originID = await Origin.findById(req.params.id)
-    const newVal = req.body
-    const updateVal = await Origin.updateOne({_id:originID},newVal)
-
-    console.log("data baru adalah " ,newVal)
-    
     try {
+         // got target id
+        const originID = await Origin.findById(req.params.id)
+        const newVal = req.body
+        const updateVal = await Origin.updateOne({_id:originID},newVal)
         res.send(updateVal)
     } catch (e) {
         console.log(e);
